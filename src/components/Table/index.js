@@ -1,28 +1,15 @@
-import React from "react";
-//import "./style.css";
+import React from 'react'
 
-// Using the datalist element we can create autofill suggestions based on the props.table array
-function Table(props) {
-  return (
-    <tr>
-      <td>
-{props.image}
-      </td>
-      <td>
-      {props.name}
-      </td>
-      <td>
-      {props.email}
-      </td>
-      <td>
-      {props.location}
-      </td>
-    </tr>
-     
+export default function Table({img, first, last, phone, email, location}) {
 
-    
-    
-  );
+    return (
+        <tr>
+           
+            <td><img className="card-img-top" src={img} alt="profile" /></td>
+            <td>{first} {last}</td>
+            <td>{phone}</td>
+            <td>{email}</td>
+            <td>{location}</td>
+        </tr>
+    )
 }
-
-export default Table;
