@@ -42,7 +42,10 @@ export default function Employees() {
 
                     {
                         // employees.length > 0 &&
-                        employees.map(employee => <Table
+                        employees.filter(employee => 
+                            employee.name.first.toLowerCase().includes(search.toLowerCase()) ||
+                            employee.name.last.toLowerCase().includes(search.toLowerCase()))
+                        .map(employee => <Table
                             img={employee.picture.thumbnail}
                             first={employee.name.first}
                             last={employee.name.last}
