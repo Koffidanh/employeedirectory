@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import SearchForm from '../SearchForm'
 import Table from "../Table";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSort } from '@fortawesome/free-solid-svg-icons'
 // import Sort from "../Sort";
 
 
@@ -29,11 +31,8 @@ export default function Employees() {
     }, []);
 
     useEffect(() => {
-        sortEmployee ? setEmployees(employees.sort((a, b) =>
-            (a.name.first > b.name.first) ? 1 : -1)
-        ) : setEmployees(employees.sort((a, b) =>
-            (b.name.first > a.name.first) ? 1 : -1)
-        ) 
+        setEmployees(employees)
+        
     }, [])
     // useEffect(() => console.log(employees), [employees])
     // create a funtion handlsort, taking employees. sort 
@@ -54,7 +53,9 @@ export default function Employees() {
         ) : setEmployees(employees.sort((a, b) =>
             (b.name.first > a.name.first) ? 1 : -1)
         )
-        console.log(employees)
+        setSortEmployee(!sortEmployee);
+        // setEmployees(employees)
+        // console.log(employees)
     }
     return (
         <div>
@@ -64,9 +65,9 @@ export default function Employees() {
                 <thead>
                     <tr>
                         <th>Profile</th>
-                        <th><button onClick={() => handleSort(employees)}>
-                            <i className={`fa fa-sort`} />
-                        </button> Name</th>
+                        <th onClick={() => handleSort(employees)}>
+                        <FontAwesomeIcon icon={faSort} />
+                         Name</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Location</th>
@@ -79,6 +80,11 @@ export default function Employees() {
                         employees && employees.filter(employee =>
                             employee.name.first.toLowerCase().includes(search.toLowerCase()) ||
                             employee.name.last.toLowerCase().includes(search.toLowerCase()))
+                        //     .sort( sortEmployee ? setEmployees(employees.sort((a, b) =>
+                        //     (a.name.first > b.name.first) ? 1 : -1)
+                        // ) : setEmployees(employees.sort((a, b) =>
+                        //     (b.name.first > a.name.first) ? 1 : -1)
+                        // ))
                             .map(employee => <Table
                                 img={employee.picture.thumbnail}
                                 first={employee.name.first}
