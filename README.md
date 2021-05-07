@@ -3,7 +3,7 @@
   # Employee Directory
   ![badge](https://img.shields.io/badge/License-MIT-brightgreen)
  ## The Repository
- This 'Employee Directory ' was created for the user to view his colleague information. This application was created  with React.[Employee Directory][(https://github.com/Koffidanh/employeedirectory/blob/main/images/employeedirectory.png](https://koffidanh.github.io/employeedirectory/))
+ This 'Employee Directory ' was created for the user to view his colleague information. This application was created  with React.[Employee Directory](https://koffidanh.github.io/employeedirectory/)
 
  ![Employee Directory](https://github.com/Koffidanh/employeedirectory/blob/main/images/employeedirectory.png)
 
